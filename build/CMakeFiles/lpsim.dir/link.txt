@@ -1,0 +1,1 @@
+/usr/bin/c++   -O3 -O3 -DNDEBUG CMakeFiles/lpsim.dir/src/main.cu.o CMakeFiles/lpsim.dir/src/propagation.cu.o CMakeFiles/lpsim.dir/src/multi_gpu.cu.o CMakeFiles/lpsim.dir/src/partitioning.cpp.o CMakeFiles/lpsim.dir/cmake_device_link.o -o lpsim   -L/usr/lib/x86_64-linux-gnu/stubs  -L/usr/lib/gcc/x86_64-linux-gnu/12  -lcuda -lcudart -lcudadevrt -lcudart_static -lrt -lpthread -ldl 

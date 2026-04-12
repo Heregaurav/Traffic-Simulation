@@ -1,0 +1,36 @@
+[LPSim] Starting with 1/1 GPU(s)
+[Loader] 14 edges loaded
+[Loader] 3 vehicles loaded
+[Pre-process] Vehicles sorted by departure time (3 vehicles)
+[GPU 0] Initialized: 3 vehicles, 14 edges, 6 nodes, 3000 lane cells
+
+[Simulation] Starting LPSim with 1 GPU(s)
+[Simulation] Time steps: 600  dt=1s
+
+[t=0 min] Wall time: 2.4716e-05s
+[t=1 min] Wall time: 0.000540015s
+[t=2 min] Wall time: 0.00104725s
+[t=3 min] Wall time: 0.00155257s
+[t=4 min] Wall time: 0.00210489s
+[t=5 min] Wall time: 0.00261341s
+[t=6 min] Wall time: 0.00311841s
+[t=7 min] Wall time: 0.0036115s
+[t=8 min] Wall time: 0.00407094s
+[t=9 min] Wall time: 0.00482399s
+
+[Simulation] DONE. Total wall time: 0.00526874 s  (8.78124e-05 min)
+
+==================================================
+         LPSim Performance Report
+==================================================
+  Vehicles simulated : 3
+  GPUs used          : 1
+  Wall time (GPU)    : 0.005 s  (0.000 min)
+
+  Amdahl Speedup Predictions (f_serial=0.05):
+    1 GPUs: 1.00x
+    2 GPUs: 1.90x
+    4 GPUs: 3.48x
+    8 GPUs: 5.93x
+==================================================
+

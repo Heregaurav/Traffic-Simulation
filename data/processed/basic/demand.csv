@@ -1,0 +1,4 @@
+vehicle_id,origin_edge,dest_edge,depart_time_s,route_edge_0,route_edge_1
+0,11,6,0,11,0,1,6
+1,13,4,2,13,8,7,4
+2,1,1,4,1

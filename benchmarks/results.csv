@@ -1,0 +1,11 @@
+timestamp,dataset,gpus,steps,dt,run,wall_time_s,status,log_file
+2026-04-12T03:28:39+0530,basic,1,600,1.0,1,0.005,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/basic_g1_r1.log
+2026-04-12T03:28:39+0530,basic,1,600,1.0,2,0.006,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/basic_g1_r2.log
+2026-04-12T03:28:39+0530,basic,1,600,1.0,3,0.005,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/basic_g1_r3.log
+2026-04-12T03:28:39+0530,basic,1,600,1.0,4,0.005,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/basic_g1_r4.log
+2026-04-12T03:28:39+0530,basic,1,600,1.0,5,0.005,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/basic_g1_r5.log
+2026-04-12T03:28:39+0530,partial_500,1,600,1.0,1,0.011,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/partial_500_g1_r1.log
+2026-04-12T03:28:39+0530,partial_500,1,600,1.0,2,0.009,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/partial_500_g1_r2.log
+2026-04-12T03:28:40+0530,partial_500,1,600,1.0,3,0.009,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/partial_500_g1_r3.log
+2026-04-12T03:28:40+0530,partial_500,1,600,1.0,4,0.010,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/partial_500_g1_r4.log
+2026-04-12T03:28:40+0530,partial_500,1,600,1.0,5,0.010,ok,/home/gaurav/Desktop/GPU COMPUTING/lpsim/benchmarks/logs/partial_500_g1_r5.log
