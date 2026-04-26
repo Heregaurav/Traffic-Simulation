@@ -1,4 +1,4 @@
-# LPSim (GPU Computing Project)
+# Traffic Simulation using LPSim (GPU Computing Project)
 
 This repository contains a CUDA/C++ implementation of a multi-GPU traffic simulation prototype inspired by:
 
