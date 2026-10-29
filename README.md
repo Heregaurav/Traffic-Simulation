@@ -14,6 +14,43 @@ The concept of implementing a multi-GPU simulation can be elucidated as follows:
 
 ![simulation drawio](https://github.com/Xuan-1998/LPSim/assets/58761221/a8ddbab9-8e17-405e-b392-28044c1d917a)
 
+## Architecture in this checkout
+
+This repository currently contains two related but separate traffic-simulation tracks. The original LivingCity/B18 application is the fuller research simulator described by the multi-GPU and regional-scale project materials above. The root-level CMake target (`lpsim`) is a smaller CUDA demonstrator with simplified CSV input and synthetic routes. They have separate entry points, build systems, data formats, and capabilities.
+
+```mermaid
+flowchart TB
+    subgraph B18[LivingCity / B18 full application]
+        LCEntry[LivingCity/LC_main.cpp] --> Runner[B18CommandLineVersion]
+        Runner --> Ini[LivingCity/command_line_options.ini]
+        Runner --> Load[Load network and OD demand]
+        Load --> Route[SP contraction hierarchies or legacy Dijkstra / Johnson]
+        Route --> B18Sim[B18TrafficSimulator]
+        B18Sim --> B18GPU[LivingCity/traffic/b18CUDA_trafficSimulator.cu]
+        B18Sim --> CPU[CPU simulation alternative]
+        B18GPU --> B18Out[Trip, edge, benchmark outputs]
+        B18Sim -. optional UI .-> Qt[Qt / OpenGL LivingCity interface]
+    end
+
+    subgraph Demo[Root-level CUDA demonstrator]
+        DemoEntry[main.cu] --> Csv[network.csv + demand.csv]
+        Csv --> DemoGPU[simulation.cu: one thread per vehicle per tick]
+        DemoGPU --> DemoOut[Console counters and timing]
+        Helpers[kernel.cu helper kernels] -. not called by current main loop .-> DemoGPU
+    end
+
+    Py[Root Python and analysis/ tools] -->|launch experiments / analyze files| B18Out
+```
+
+### How to read the project
+
+- **Full application:** start at `LivingCity/LC_main.cpp`, then follow `LivingCity/traffic/b18CommandLineVersion.cpp` into network/demand loading, routing, `B18TrafficSimulator`, and the B18 CUDA backend. The qmake project is `LivingCity/LivingCity.pro`.
+- **CUDA demonstrator:** start at `main.cu`, then `simulation.h` and `simulation.cu`. It reads root-level `network.csv` and `demand.csv`; CMake builds this track from the top-level `CMakeLists.txt`.
+- **Research and analysis:** Python scripts at the repository root and under `analysis/` automate experiments, calibrate parameters, inspect simulation outputs, and create plots. They operate around the simulator rather than being part of the CUDA tick loop.
+
+The root demo does not perform graph shortest-path routing: its demand loader ignores the destination and creates a synthetic route length. Its `--gpus` and `--partition` options are currently printed but do not configure multi-GPU execution. Use the B18 path for graph routing, route assignment, batch impedance updates, and the fuller traffic model. For the detailed component map, data layouts, and implementation caveats, see [ARCHITECTURE.md](ARCHITECTURE.md).
+
+> The external multi-GPU diagrams and scale/performance statements above describe the intended/full application context; they should not be read as behavior implemented by the separate root-level CUDA demonstrator.
 
 ## Initial checks
 
